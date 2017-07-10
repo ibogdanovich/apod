@@ -4,7 +4,7 @@ This short script allow you to get the link of "Astronomy Photo of the Day" (APO
 ## How it works
 Script without any args return APOD URL. For additional data use corresponding args.
 
-##Arguments
+## Arguments
 Script always return URL in case of arguments return additional information.
 ```
 --hires, -r: show the likt to the photo in high resolution
@@ -13,5 +13,5 @@ Script always return URL in case of arguments return additional information.
 --expl','-e: show explanation text
 ```
 
-##Configuration
+## Configuration
 Get your own API key on [NASA OpenAPIs](https://api.nasa.gov) and put it into api_key in config.py.
