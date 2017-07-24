@@ -7,6 +7,7 @@ Script without any args return APOD URL. For additional data use corresponding a
 ## Arguments
 Script always return URL in case of arguments return additional information.
 ```
+--date, -d: the date of the APOD image retrive
 --hires, -r: show the likt to the photo in high resolution
 --info','-i': show full information about photo
 --title','-t: show photo title
