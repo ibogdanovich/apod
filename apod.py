@@ -4,7 +4,7 @@
 import requests
 import argparse
 import datetime
-from config import api_key
+import config
 
 
 def check_date(ph_date):
@@ -17,7 +17,7 @@ def check_date(ph_date):
 
 
 def show_photo(ph_date=''):
-    ap_data = apod_get_json(api_key, ph_date)
+    ap_data = apod_get_json(config.api_key, ph_date)
     if ap_data:
         if option['hires']:
             print(ap_data['hdurl'])
@@ -37,7 +37,8 @@ def apod_get_json(api_key, ph_date=''):
     if r.status_code == requests.codes.ok:
         return r.json()
     else:
-        print('bad status code:', r.status_code)
+        print('Site not available, code:', r.status_code)
+        print('Check you internet connection or API_Key in config.py')
         return False
 
 
@@ -46,7 +47,7 @@ parser.add_argument('--date','-d', action="store", help='the date of the APOD im
 parser.add_argument('--hires','-r', action='store_true', default=False, help='show the link to the photo in high resolution')
 parser.add_argument('--info','-i', action="store_true",  help='show full information about media')
 parser.add_argument('--title','-t', action="store_true", help='show photo title')
-parser.add_argument('--expl','-e', action="store_true", help='show explanation text')
+parser.add_argument('--expl','-e', action="store_true", help='show description')
 
 args = parser.parse_args()
 option = vars(args)
